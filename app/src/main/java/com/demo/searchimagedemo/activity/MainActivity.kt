@@ -72,6 +72,9 @@ class MainActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
                     mViewModel.mTotalCount
                 )
             rv.adapter = mImageAdapter
+            pb.visibility = View.INVISIBLE
+            txt_info.visibility = View.INVISIBLE
+            rv.visibility = View.VISIBLE
         }
     }
 
@@ -80,11 +83,7 @@ class MainActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
         val item: MenuItem = menu!!.findItem(R.id.menu_search)
         val searchView: SearchView = item.getActionView() as SearchView
         searchView.setOnQueryTextListener(this)
-        if(mViewModel.mSearchTxt.isNullOrBlank().not()){
-            searchView.queryHint = mViewModel.mSearchTxt
-        }else{
-            searchView.queryHint = "Search For Images"
-        }
+        searchView.queryHint = "Search For Images"
         return true
     }
 
