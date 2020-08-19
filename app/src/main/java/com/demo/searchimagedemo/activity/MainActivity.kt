@@ -95,6 +95,8 @@ class MainActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
         mViewModel.mSearchTxt = query
         mViewModel.mNextPage = 1
         mViewModel.mImageData.clear()
+        pb.visibility = View.VISIBLE
+        txt_info.visibility = View.INVISIBLE
         query?.let {
             mViewModel.getImagesByText(
                 this,
@@ -104,8 +106,6 @@ class MainActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
             )
                 .observe(this, mImageDataObserver)
         }
-        pb.visibility = View.VISIBLE
-        txt_info.visibility = View.INVISIBLE
         if (this::mImageAdapter.isInitialized) {
             mImageAdapter.clearData()
         }
