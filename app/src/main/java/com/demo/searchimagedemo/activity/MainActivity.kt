@@ -184,6 +184,7 @@ class MainActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
                         mViewModel.mNextPage++
                     }
                     is InternetNotConnected -> {
+                        mViewModel.mSearchTxt=null
                         Toast.makeText(
                             this,
                             getString(R.string.internet_not_connected),
@@ -191,6 +192,7 @@ class MainActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
                         ).show()
                     }
                     is Fail -> {
+                        mViewModel.mSearchTxt=null
                         Toast.makeText(
                             this,
                             getString(R.string.something_went_wrong),

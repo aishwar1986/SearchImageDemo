@@ -53,6 +53,8 @@ class ImageListAdapter constructor() : RecyclerView.Adapter<RecyclerView.ViewHol
             Glide.with(holder.img.context).load(mData?.get(position)?.getImgUrl()).apply(
                 RequestOptions.diskCacheStrategyOf(DiskCacheStrategy.DATA)
                     .dontAnimate()
+                    .placeholder(R.drawable.all_round_gray)
+                    .error(R.drawable.all_round_gray)
             ).into(holder.img)
         }
     }
